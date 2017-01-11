@@ -71,13 +71,6 @@ DiagrammeR::grViz("notebook-io.gv")
 1. When you **execute** chunks in your notebook, the output is simultaneously displayed by RStudio and stored in a local cache in the `.Rproj.user` folder.
 1. When you **save** your notebook, the output and your R Markdown document are combined into a single, self-contained `.nb.html` file.
 
-## Execution Environment
-
-- **Working directory** is always document directory (configurable as of RStudio 1.1)
-- **Warnings** are not held until the end
-- **Console output** is copied into the notebook
-- **Plots** and **HTML widgets** are captured into the notebook
-
 # Publishing and Collaborating
 
 ## Publishing
@@ -137,6 +130,23 @@ DiagrammeR::grViz("notebook-formats.gv")
 DiagrammeR::grViz("nb-hydration.gv")
 ```
 
+## Collaborating: Opening Code in RStudio
+
+![download R markdown](download-rmd.png)
+
+
+## Collaborating: Opening Notebook in RStudio
+
+![save as notebook](save-as-nb-html.png)
+
+## Collaborating: Open Inside RStudio
+
+![pre open](pre-open.png)
+
+## Collaborating: Open Notebook
+
+![hydrated](hydrated-notebook.png)
+
 ## Collaborating: Version Control #1
 
 - Add `*.nb.html` to your `.gitignore` or similar
@@ -151,4 +161,17 @@ DiagrammeR::grViz("nb-hydration.gv")
 - RStudio loads outputs from `.nb.html` if newer
 - Outputs and inputs are versioned together
 - No need to re-execute lengthy or fragile computations
+
+## Versioned Output
+
+When a notebook is opened:
+
+- The local cache modified time is compared to the `.nb.html` 
+- If `.nb.html` is older, it is ignored
+- If `.nb.html` is newer, it replaces the local cache
+- No merging or conflict management is performed!
+
+## Q&A
+
+
 
